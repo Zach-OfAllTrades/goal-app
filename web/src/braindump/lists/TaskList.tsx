@@ -1,6 +1,7 @@
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { Task } from "../models";
+import { Task } from "../../models";
+import NoCatTaskList from "./NoCatTaskList";
 
 type TaskListProps = {
   taskList: Task[];
@@ -26,23 +27,12 @@ const TaskList = ({ taskList, removeTask }: TaskListProps) => {
     }
   }, [taskList]);
 
-  const onRemove = (task: Task) => {
-    removeTask(task);
-  };
-
   return (
     <Grid item xs={8}>
       {emptyList ? (
         <Box>Add a task to begin</Box>
       ) : (
-        <Stack spacing={1}>
-          {taskList.map((task: Task) => (
-            <Box sx={itemSx} key={task.id}>
-              <Typography>{task.description}</Typography>
-              <Button onClick={() => onRemove(task)}>X</Button>
-            </Box>
-          ))}
-        </Stack>
+        <NoCatTaskList taskList={taskList} removeTask={removeTask}/>
       )}
     </Grid>
   );

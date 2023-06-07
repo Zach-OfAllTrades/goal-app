@@ -2,7 +2,7 @@ import { Grid, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { Task } from "../models";
 import TaskEntry from "./TaskEntry";
-import TaskList from "./TaskList";
+import TaskList from "./lists/TaskList";
 
 const BrainDump = () => {
   const [taskList, setTaskList] = useState<Task[]>([]);

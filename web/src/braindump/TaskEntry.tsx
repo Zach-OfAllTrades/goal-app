@@ -15,9 +15,7 @@ const TaskEntry = ({ addTask }: any) => {
     if (e.keyCode === 13) {
       e.preventDefault();
 
-      if (validateTask(task)) return;
-      addTask(task);
-      setTask("");
+      onSubmit();
     }
   };
 
